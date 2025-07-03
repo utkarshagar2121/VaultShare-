@@ -1,0 +1,44 @@
+{
+	"info": {
+		"_postman_id": "8fd1fff6-cd03-41f6-8681-91f5a169ef49",
+		"name": "📁 File Management",
+		"description": "# API Endpoint Documentation (Postman Ready)\n\nThis document explains all endpoints related to file management, categorized by **who uses what** — i.e., `ops` users (file uploaders) and `client` users (file consumers).\n\n---\n\n## 👥 Role-Based Access Table\n\n| Endpoint | Method | Description | Used By | Auth Required |\n| --- | --- | --- | --- | --- |\n| `/upload` | POST | Upload file to the server/cloud | Ops | ✅ Yes |\n| `/files` | GET | Get list of all available files | Client | ✅ Yes |\n| `/download/{id}` | GET | Get download link for a file by ID | Client | ✅ Yes |\n| `/logs` | GET | View all download logs | Ops | ✅ Yes |\n\n---\n\n## 🔐 Authentication Reminder\n\nAll endpoints (except `/signup` and `/login`) require JWT Bearer Token in the header:\n\n```\nmakefileCopyEditAuthorization: Bearer <your_token>\n\n ```\n\n---\n\n## 🚀 Endpoint Descriptions\n\n---\n\n### 🔼 `POST /upload` – Upload a File\n\n📌 **Who:** Ops\n\n🔐 **Protected:** Yes\n\n📁 **File Types Allowed:** `.docx`, `.pptx`, `.xlsx`\n\n📤 **Body (form-data):**\n\n- `file`: Upload your document\n    \n\n✅ **Response:**\n\n```\njsonCopyEdit{\n  \"message\": \"File uploaded successfully\",\n  \"cloudinary_url\": \"https://res.cloudinary.com/.../yourfile.docx\"\n}\n\n ```\n\n❌ PDF files will be rejected.\n\n---\n\n### 📄 `GET /files` – List All Uploaded Files\n\n📌 **Who:** Client\n\n🔐 **Protected:** Yes\n\n✅ **Response:**\n\n```\njsonCopyEdit[\n  {\n    \"id\": 1,\n    \"filename\": \"report.docx\",\n    \"filepath\": \"https://res.cloudinary.com/.../report.docx\"\n  },\n  ...\n]\n\n ```\n\n---\n\n### 📥 `GET /download/{file_id}` – Get Download Link for a File\n\n📌 **Who:** Client\n\n🔐 **Protected:** Yes\n\n✅ **URL Param:**\n\n- `file_id`: ID of the file from `/files`\n    \n\n✅ **Response:**\n\n```\njsonCopyEdit{\n  \"download_url\": \"https://res.cloudinary.com/.../report.docx\"\n}\n\n ```\n\n⏱ Also logs the download to the database.\n\n---\n\n### 📜 `GET /logs` – View Download Logs\n\n📌 **Who:** Ops\n\n🔐 **Protected:** Yes\n\n✅ **Response:**\n\n```\njsonCopyEdit[\n  {\n    \"file_id\": 1,\n    \"user_id\": 3,\n    \"timestamp\": \"2025-07-02T13:04:11.055Z\"\n  },\n  ...\n]\n\n ```\n\nUsed by Ops users to audit who downloaded what and when.\n\n---\n\n## 🧪 Suggested Postman Folder Structure\n\n```\nbashCopyEdit📁 File Management\n   ├─ 📤 Upload File (POST /upload) – Ops\n   ├─ 📄 List Files (GET /files) – Client\n   ├─ 📥 Download File (GET /download/{id}) – Client\n   └─ 📜 View Download Logs (GET /logs) – Ops\n\n ```",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36438664",
+		"_collection_link": "https://cheeku-3688.postman.co/workspace/File-Sharing-Application~4bfd30e5-c8d0-470a-ab59-72c7add783aa/collection/36438664-8fd1fff6-cd03-41f6-8681-91f5a169ef49?action=share&source=collection_link&creator=36438664"
+	},
+	"item": [
+		{
+			"name": "file upload",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "files list",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "file download",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "download log for opt",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

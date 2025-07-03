@@ -1,0 +1,28 @@
+{
+	"info": {
+		"_postman_id": "93863ec0-0f71-45d8-a044-93b83164c0e9",
+		"name": "🛠️ OPS Check",
+		"description": "This collection tests all available endpoints for a user with the **`ops`** role in the secure file-sharing system. The `ops` role has elevated privileges and is responsible for uploading files, managing logs, and viewing download statistics.\n\n---\n\n## 🧑‍💼 OPS ROLE OVERVIEW\n\n**Ops** users are responsible for:\n\n- Uploading files to the cloud (e.g., `.xlsx`, `.pptx`, `.docx`)\n    \n- Storing file metadata in the database\n    \n- Viewing download logs\n    \n- Triggering optional file verifications or checks\n    \n\n---\n\n## 🔐 Authentication\n\nAll endpoints (except `/signup` and `/login`) require a **JWT Bearer Token**.\n\n**Authorization Tab in Postman:**\n\n- Type: `Bearer Token`\n    \n- Token:\n    \n\n---\n\n## 📮 API Endpoints for Ops Role\n\n| Method | Endpoint | Description | Auth Required |\n| --- | --- | --- | --- |\n| POST | `/signup` | Register as an ops user | ❌ |\n| POST | `/login` | Log in and get JWT token | ❌ |\n\n---\n\n## 🧪 Example Workflows for Testing Ops Endpoints\n\n---\n\n### 1\\. 📝 `/signup` (Register Ops)\n\n```\njsonCopyEdit{\n  \"email\": \"ops@example.com\",\n  \"password\": \"secure123\",\n  \"role\": \"ops\"\n}\n\n ```\n\nReturns: `201 Created`\n\n---\n\n### 2\\. 🔐 `/login` (Authenticate)\n\n```\njsonCopyEdit{\n  \"email\": \"ops@example.com\",\n  \"password\": \"secure123\"\n}\n\n ```\n\nReturns:\n\n```\njsonCopyEdit{\n  \"access_token\": \"jwt_token_here\",\n  \"token_type\": \"bearer\"\n}\n\n ```\n\nUse this token for all subsequent requests.\n\n---\n\n## 🧾 Optional: Verification Email on Upload\n\nIf email verification is enabled and configured using Mailtrap or Gmail SMTP, the system can send a verification email to the uploader or admin (optional).\n\n---\n\n## 🧪 Sample Testing Flow in Postman\n\n1. `POST /signup` – Register an Ops user\n    \n2. `POST /login` – Get JWT access token\n    \n3. Set `Authorization: Bearer`",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36438664",
+		"_collection_link": "https://cheeku-3688.postman.co/workspace/File-Sharing-Application~4bfd30e5-c8d0-470a-ab59-72c7add783aa/collection/36438664-93863ec0-0f71-45d8-a044-93b83164c0e9?action=share&source=collection_link&creator=36438664"
+	},
+	"item": [
+		{
+			"name": "ops sign up",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "login as ops",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,29 @@
+
+{
+	"info": {
+		"_postman_id": "cc17a4f9-4ebe-45ad-a442-5cb1d994485c",
+		"name": "👩🏾‍💻Client Check",
+		"description": "This collection includes **all endpoints a** **`client`** **user can access and test** on the file-sharing system built with FastAPI and PostgreSQL. It ensures that client users can:\n\n- Sign up and log in.\n    \n- View uploaded files.\n    \n- Download files via secure URL.\n    \n- Be verified via email (if enabled).\n    \n- View logs (if assigned additional permissions).\n    \n- Trigger optional logging via `/client-check`.\n    \n\n---\n\n## 👤 CLIENT ROLE OVERVIEW\n\n**Clients** are users who:\n\n- Can **view and download files** uploaded by ops users.\n    \n- Cannot upload files.\n    \n- Must be **verified** to log in.\n    \n- Are restricted from admin-level actions like log viewing or uploads.\n    \n\n---\n\n## 📮 API Endpoints for Client Role\n\n| Method | Endpoint | Description | Auth Required |\n| --- | --- | --- | --- |\n| POST | `/signup` | Register as a new client | ❌ |\n| POST | `/login` | Log in and get JWT token | ❌ |\n\n---\n\n## 🔐 Authentication\n\nAll endpoints marked with ✅ require the **JWT bearer token** obtained from the `/login` response. Set it in Postman like this:\n\n**Authorization Tab:**\n\n- Type: `Bearer Token`\n    \n- Token:\n    \n\n---\n\n## 📦 Sample Body for `/signup`\n\n```\n{\n  \"email\": \"client@example.com\",\n  \"password\": \"secure123\",\n  \"role\": \"client\"\n}\n\n ```\n\n---\n\n## 📦 Sample Body for `/login`\n\n```\n{\n  \"email\": \"client@example.com\",\n  \"password\": \"secure123\"\n}\n\n ```\n\nReturns:\n\n```\njsonCopyEdit{\n  \"access_token\": \"jwt_token_here\",\n  \"token_type\": \"bearer\"\n}\n\n ```\n\n---\n\n## ✅ Testing Flow in Postman\n\n1. `POST /signup` – Register a client\n    \n2. `POST /login` – Get JWT token\n    \n3. Set token in `Authorization > Bearer Token`\n    \n4. `GET /verify?email=...` – Manually verify via link (if enabled)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36438664",
+		"_collection_link": "https://cheeku-3688.postman.co/workspace/File-Sharing-Application~4bfd30e5-c8d0-470a-ab59-72c7add783aa/collection/36438664-cc17a4f9-4ebe-45ad-a442-5cb1d994485c?action=share&source=collection_link&creator=36438664"
+	},
+	"item": [
+		{
+			"name": "login as client",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Sign Up",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
