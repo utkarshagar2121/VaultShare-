@@ -31,7 +31,6 @@ A secure file-sharing web application built using **FastAPI**, **PostgreSQL**, a
 │   ├── database.py
 │   ├── schemas.py
 │   └── utils.py
-├── uploads/               # Temp upload directory
 ├── .env
 ├── .gitignore
 ├── requirements.txt
