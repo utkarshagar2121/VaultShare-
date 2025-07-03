@@ -52,17 +52,20 @@ pip install -r requirements.txt
 
 Create a `.env` file in the root of the project with the following values:
 
-```
-env
-# PostgreSQL
+### PostgreSQL
+
+```env
 DATABASE_URL=postgresql://username:password@localhost:5432/your_db_name
 ```
 
-# JWT
+### JWT
+
 ```
 SECRET_KEY=your_secret_key
 ```
-# SMTP (Mailtrap Example)
+
+### SMTP (Mailtrap Example)
+
 ```
 EMAIL_FROM=your_mailtrap_email@example.com
 EMAIL_PASSWORD=your_mailtrap_password
@@ -70,7 +73,8 @@ SMTP_SERVER=smtp.mailtrap.io
 SMTP_PORT=587
 ```
 
-# Cloudinary
+### Cloudinary
+
 ```
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
@@ -155,22 +159,4 @@ Authorization: Bearer <token>
 - JWT Auth
 - Pydantic
 - Uvicorn
-
----
-
-## 🤝 Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
----
-
-## 🧼 .gitignore Example
-
-```
-.env
-__pycache__/
-uploads/
-*.pyc
-```
-
 ---
