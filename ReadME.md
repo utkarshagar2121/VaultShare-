@@ -1,4 +1,4 @@
-# 📁 Secure File Sharing System
+# 📁VaultShare- Secure File Sharing System
 
 A secure file-sharing web application built using **FastAPI**, **PostgreSQL**, and **Cloudinary** that supports role-based access. `Ops` users can upload files, while `Client` users can view and download shared files. The system includes JWT-based authentication, email verification, and secure download logging.
 
